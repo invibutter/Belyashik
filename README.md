@@ -1,6 +1,6 @@
 # Maksym Kovtun — Senior Designer
 
-Senior UI/UX designer with 6+ years of experience designing and maintaining complex B2B SaaS design systems for operational and workflow-driven platforms. Specializes in end-to-end product design — from user research and hypothesis development through interface design, prototyping, and close collaboration with development teams. Experienced in compliance-critical software, mobile and web applications, and data-heavy dashboards. Strong systems thinking with a focus on scalable, consistent design standards. Comfortable working with distributed US-based teams.
+Senior designer with 6+ years of experience designing and maintaining complex B2B SaaS design systems for operational and workflow-driven platforms. Specializes in end-to-end product design — from user research and hypothesis development through interface design, prototyping, and close collaboration with development teams. Experienced in compliance-critical software, mobile and web applications, and data-heavy dashboards. Strong systems thinking with a focus on scalable, consistent design standards. Comfortable working with distributed US-based teams.
 
 ## Projects
 
