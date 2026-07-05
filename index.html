@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws Shelter</title>
+
+  <!-- Tailwind CSS loaded from a CDN — no build step needed, classes work directly in the HTML -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50 text-slate-800">
+
+  <!-- Top navigation bar -->
+  <header class="bg-white border-b border-slate-200">
+    <nav class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="font-semibold text-lg">🐾 Paws Shelter</span>
+      <div class="space-x-6 text-sm">
+        <a href="#dogs" class="hover:text-amber-600">Our Dogs</a>
+        <a href="#adopt" class="hover:text-amber-600">Adopt</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero section: the big introductory banner at the top of the page -->
+  <section class="max-w-3xl mx-auto px-6 py-16 text-center">
+    <h1 class="text-4xl font-bold tracking-tight">Find your new best friend</h1>
+    <p class="mt-4 text-lg text-slate-600">
+      We rescue, care for, and rehome dogs in need of a loving family.
+    </p>
+  </section>
+
+  <!-- Dogs section: a grid of cards, one per dog available for adoption -->
+  <section id="dogs" class="max-w-3xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-semibold mb-6">Dogs waiting for a home</h2>
+
+    <!-- grid layout: 1 column on mobile, 3 columns on small screens and up -->
+    <div class="grid gap-6 sm:grid-cols-3">
+
+      <!-- each dog is a "card": a white box with a border and rounded corners -->
+      <div class="bg-white border border-slate-200 rounded-lg p-4 text-center">
+        <div class="text-5xl mb-2">🐕</div>
+        <h3 class="font-semibold">Rex</h3>
+        <p class="text-sm text-slate-500">2 years old · Labrador</p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-4 text-center">
+        <div class="text-5xl mb-2">🐶</div>
+        <h3 class="font-semibold">Bella</h3>
+        <p class="text-sm text-slate-500">1 year old · Beagle</p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-4 text-center">
+        <div class="text-5xl mb-2">🐩</div>
+        <h3 class="font-semibold">Max</h3>
+        <p class="text-sm text-slate-500">3 years old · Poodle</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Call-to-action section encouraging visitors to take the next step -->
+  <section id="adopt" class="max-w-3xl mx-auto px-6 py-12 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Ready to adopt?</h2>
+    <p class="text-slate-600 mb-6">Visit our shelter or get in touch to meet your future companion.</p>
+
+    <!-- a simple button-styled link -->
+    <a href="#" class="inline-block bg-amber-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-700">
+      Contact Us
+    </a>
+  </section>
+
+  <!-- Footer: shown at the very bottom of every page -->
+  <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-400">
+    Paws Shelter
+  </footer>
+
+</body>
+</html>
