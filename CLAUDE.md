@@ -1,0 +1,55 @@
+# Project: app
+
+## Context
+A personal portfolio repository. The repo root holds static profile pages (README, ABOUT.md, a standalone index.html), while `app/` contains a Vite + React + TypeScript application used to build and showcase reusable UI components (starting with a `Button`).
+
+## Tech Stack
+- React 19
+- TypeScript (strict-ish config: `noUnusedLocals`, `noUnusedParameters`, `verbatimModuleSyntax`)
+- Vite 8 (`@vitejs/plugin-react`)
+- Tailwind CSS v4 via `@tailwindcss/vite` (CSS-first config, no `tailwind.config.js` — Tailwind is enabled by `@import "tailwindcss";` in `src/index.css`)
+- oxlint for linting (`react`, `typescript`, `oxc` plugins)
+
+## File Structure
+```
+app/
+  src/
+    main.tsx           # entry point, mounts <App /> in StrictMode
+    App.tsx             # top-level demo/page component (default export)
+    index.css           # single `@import "tailwindcss";`
+    components/
+      Button.tsx         # reusable component (named export)
+  public/
+    favicon.svg
+  index.html
+  vite.config.ts
+  tsconfig.json / tsconfig.app.json / tsconfig.node.json
+  package.json
+  .oxlintrc.json
+```
+
+## Code Conventions
+- Reusable components live in `src/components/` and use **named exports** (`export function Button(...)`), not default exports.
+- The top-level `App.tsx` is the exception — it uses a default export, matching the Vite template convention for entry components.
+- Component props are typed via an `interface` that extends the relevant native HTML attributes type (e.g. `ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>`), rather than redeclaring standard DOM props.
+- Variants/enums are modeled as string literal unions (`type ButtonVariant = 'primary' | 'secondary' | 'ghost'`) and mapped to Tailwind classes via a `Record<Variant, string>` lookup object.
+- Type-only imports use `import type { ... }` (required by `verbatimModuleSyntax: true` in tsconfig).
+- Styling is Tailwind utility classes composed directly in JSX via template literals; no CSS modules or styled-components.
+- Default prop values are set via destructuring defaults (`{ variant = 'primary' }`), not `defaultProps`.
+
+## What to do
+- Keep new components in `src/components/`, one component per file, named exports.
+- Extend native HTML element prop types when wrapping a native element, instead of hand-rolling common props like `onClick`, `disabled`, etc.
+- Model variants as string literal unions + a `Record<Variant, string>` map, consistent with `Button.tsx`.
+- Use `import type` for type-only imports (enforced by `verbatimModuleSyntax`).
+- Run `oxlint` before committing; keep `react/rules-of-hooks` and unused-var errors at zero.
+
+## What NOT to do
+- Don't use `any` — `noUnusedLocals`/`noUnusedParameters` are already strict; keep types explicit.
+- Don't write custom CSS files or inline `<style>` blocks alongside Tailwind — compose utility classes instead (there's no CSS Modules or styled-components setup here).
+- Don't add a `tailwind.config.js` — this project uses Tailwind v4's CSS-first config; new theme tokens go in `index.css` via `@theme`, not a JS config file.
+- Don't mix default and named exports inconsistently — only `App.tsx` (the entry page) should use a default export.
+- Don't reach for a state/data-fetching library (Redux, React Query, etc.) without discussing it first — the project currently has zero runtime dependencies beyond React itself.
+
+## Keeping this file updated
+When you introduce a new library, pattern, folder, or convention not yet documented above, add it to the relevant section before finishing the task. Don't wait to be asked.
