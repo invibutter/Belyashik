@@ -53,3 +53,9 @@ app/
 
 ## Keeping this file updated
 When you introduce a new library, pattern, folder, or convention not yet documented above, add it to the relevant section before finishing the task. Don't wait to be asked.
+
+## Noticing repeatable work
+If you notice the same kind of task being requested repeatedly (2-3+ times), or that an existing agent's responsibilities in `.claude/agents/` should grow or shrink based on what's actually being asked of it, proactively flag this to the user at the end of your response:
+- Name the pattern you noticed
+- Propose a concrete action: update an existing agent (say exactly what to add/remove), create a new agent, or create/update a skill in `.claude/skills/`
+- Don't create or modify the agent/skill yourself until the user approves — this is a suggestion, not an automatic action
