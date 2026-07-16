@@ -54,6 +54,14 @@ app/
 ## Keeping this file updated
 When you introduce a new library, pattern, folder, or convention not yet documented above, add it to the relevant section before finishing the task. Don't wait to be asked.
 
+## Available agents, skills, and teams
+This repo has project-level tooling under `.claude/`:
+- `.claude/skills/` — e.g. `new-component-with-story` (scaffolds a component + Storybook story + MDX doc)
+- `.claude/agents/` — single-purpose subagents (`component-builder`, `page-composer`, `code-reviewer`, `component-tester`, `docs-writer`, `storybook-publisher`, `figma-reader`, `design-tokens-manager`, `design-system-lead`)
+- `.claude/agents/team-design-system.md` + `.claude/tasks/design-system.md` — the `design-system-team`, an ongoing multi-role initiative to expand components, redesign pages, and keep Storybook current
+
+These are only invoked when the user explicitly asks for a skill/agent/team by name or clearly requests that workflow — don't reach for them automatically on every matching request.
+
 ## Noticing repeatable work
 If you notice the same kind of task being requested repeatedly (2-3+ times), or that an existing agent's responsibilities in `.claude/agents/` should grow or shrink based on what's actually being asked of it, proactively flag this to the user at the end of your response:
 - Name the pattern you noticed
