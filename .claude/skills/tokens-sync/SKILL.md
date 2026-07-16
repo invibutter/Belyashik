@@ -35,10 +35,12 @@ When the user runs `/tokens-sync [FIGMA_URL]` (or asks to "sync tokens from Figm
 
 4. **DIFF**
    - Run `git diff` scoped to `app/tokens/tokens.json`, `app/src/styles/tokens.css`, and `app/src/styles/theme.css`.
-   - Show the diff to the user before doing anything else. Summarize it as: tokens added, tokens changed (value or reference), tokens renamed (same value, different path — treat as a rename, not delete+add), tokens removed.
-   - **If any token would be removed**, stop and ask the user to explicitly confirm before continuing — never delete a token silently. If a rename is ambiguous (the value isn't uniquely traceable to one old token), ask the user which old token maps to which new one instead of guessing.
+   - Show the diff to the user and **stop — wait for explicit approval before step 5, every single time.** This applies to *any* diff, not just ones with removals: a value tweak, a full schema restructure, a rename — all of it gets shown and confirmed first. Don't rationalize skipping this because the change "looks safe" or was already verified in the browser; verification and approval are two different gates.
+   - Summarize the diff as: tokens added, tokens changed (value or reference), tokens renamed (same value, different path — treat as a rename, not delete+add), tokens removed. If the diff is a large restructure (many paths changing shape at once), say so explicitly — don't undersell it as a small change.
+   - **If any token would be removed**, call that out specifically and make sure the user's approval covers the removal, not just the sync in general.
+   - If a rename is ambiguous (the value isn't uniquely traceable to one old token), ask the user which old token maps to which new one instead of guessing.
 
-5. **COMMIT**
+5. **COMMIT** — only after the user has explicitly approved the diff shown in step 4.
    - Check the current git branch. If it's `main`, create a new branch first (e.g. `chore/tokens-sync-<yyyy-mm-dd>`) — never commit or push directly to `main`, even for this automated flow.
    - `git add app/tokens/tokens.json app/src/styles/tokens.css app/src/styles/theme.css`
    - `git commit -m "chore(tokens): sync from Figma"`
@@ -58,6 +60,7 @@ End with a short report:
 
 ## Don't
 - Don't rely on `get_variable_defs`/`get_metadata` alone to discover "all" variables — they only see what's bound to a layer, not full collections
+- Don't commit (step 5) without the user explicitly approving the diff shown in step 4 — no exceptions, including large restructures that were already verified working
 - Don't delete a token from `tokens.json` without explicit user confirmation
 - Don't hand-edit `tokens.css` or `theme.css` — regenerate them
 - Don't silently choose which mode is "live" in `theme.css` when a category has more than one — confirm with the user
