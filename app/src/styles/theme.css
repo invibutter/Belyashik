@@ -1,8 +1,9 @@
 /**
  * Do not edit directly, this file was auto-generated.
+ * Tailwind v4 theme tokens — imported by index.css.
  */
 
-:root {
+@theme {
   --color-text-neutral-primary: #202939;
   --color-text-neutral-secondary: #4b5565;
   --color-text-neutral-tertiary: #9aa4b2;
@@ -27,6 +28,7 @@
   --color-foreground-neutral-fg-quinary: #9aa4b2;
   --color-foreground-neutral-fg-senary: #ccd5df;
   --color-alpha-black-20: rgba(0, 0, 0, 0.2);
+  --color-brand-blue: var(--color-background-accent-primary);
   --spacing-100: 4px;
   --spacing-200: 8px;
   --spacing-300: 12px;
@@ -39,24 +41,4 @@
   --radius-300: 12px;
   --radius-400: 16px;
   --radius-none: 0px;
-  --border-width-100: 2px;
-  --border-width-050: 1px;
-  --font-family-body: Inter;
-  --font-family-headings: Inter;
-  --font-family-display: Outfit;
-  --font-weight-regular: 400;
-  --font-weight-semi-bold: 600;
-  --font-size-small: 14px;
-  --font-size-medium: 16px;
-  --font-size-large: 18px;
-  --font-size-heading-3: 24px;
-  --font-size-heading-1: 40px;
-  --font-size-display: 56px;
-  --line-height-small: 16px;
-  --line-height-medium: 20px;
-  --line-height-large: 28px;
-  --line-height-heading-3: 30px;
-  --line-height-heading-1: 38px;
-  --line-height-display: 44px;
-  --color-brand-blue: var(--color-background-accent-primary);
 }
